@@ -43,7 +43,15 @@ class App extends React.Component {
           <CommonBtn>NowPlaying</CommonBtn>
         </View>
 
-        {loading ? viewPopular.map(movie => <Text>{movie.title}</Text>) : null}
+        {loading ? (
+          viewPopular.map(movie => (
+            <View key={movie.id}>
+              <Text>{movie.title}</Text>
+            </View>
+          ))
+        ) : (
+          <Text>Loading ... </Text>
+        )}
       </View>
     );
   }
